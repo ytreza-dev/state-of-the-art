@@ -1,7 +1,7 @@
 # A discuter (inbox)
 
 - Tests
-    - Définir notre ubiquitous language sur ce que sont les tests
+    - Définir notre ubiquitous language sur ce que sont les tests (avoir peut-être une section dédiée voire même un fichier à part)
     - Définir quels niveaux de tests on veut implémenter selon le besoin
         - TU
         - Tests d'intégration
@@ -11,10 +11,12 @@
     - Préciser comment un stub parametré s'utiliser (feed vs constructor vs etc.)
 - Conventions
     - Nommage
+        - Repository / DataSource etc.
 - Architecture
     - Définir un ensemble d'architectures permettant de répondre avec un minimum de code au besoin
     - Quels raccourcis se permet-on sur une archi ?
     - Rendre les morceaux de code modulaires (création de librairie)
+    - Choisir une manière de représenter l'orgnaisation des répertoires (vertical architecture, etc...)
 - Outillage
     - Définir, par stack, les outils qu'on préfère utiliser
         - ex : Front : Angular, un outil de state, un outil de gestion event driven, un outil d'injection de dépendances
@@ -46,15 +48,9 @@
 
 [A préciser ...]
 
+# Ubiquitous Language
+
 # Battle
-
-## 1
-- Archi hexagonale, ce doit être un non événement d'en mettre une en place
-
-Doit-on se forcer à mettre une archi hexa?
-Avantages : facilite l'évolution
-Inconvénients : peut rajouter une couche (pas un soucis pour Jonathan et Dimitri)
-A mettre ailleurs? -> Pas d'use case si c'est que du passe-plat ?
 
 ## Les tests doivent être rapides
 
@@ -76,12 +72,19 @@ Dimitri et Jonathan vont l'essayer
 
 # Validées
 
+## Systématiser la création d'un hexagon
+
+Que ce soit dans la lecture ou l'écriture, nous avons choisi de systématiser la création d'un hexagon (port + use case).
+C'est très rapide à mettre en place et ça facilite la testabilité notamment à gauche tout comme la stabilité dans son ensemble.
+
+Nous avons conscience que ça fait émerger un test à gauche très similaire au test d'hexagon (je m'assurer que j'ai bien collaborer avec mon port)
+
 ## Séparer le monde de la lecture de celui de l'écriture
 
 Nous avons choisi de séparer les use cases de lecture de ceux d'écriture. Cette séparation est a minima effective dans la couche hexagonal et les secondary adapters.
 Nous nous laissons libre choix de définir si les primary adapters sont concernés ou non. "It depends" 🤷‍♂️
 
-## Notre définition de test doubles
+## Notre définition de test doubles (-> a bouger dans notre UL)
 
 Quelques liens sur lesquels on s'appuie pour notre interprétation des test doubles :
 - [The Little Mocker](https://blog.cleancoder.com/uncle-bob/2014/05/14/TheLittleMocker.html)
