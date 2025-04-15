@@ -40,6 +40,7 @@
     - Qui choisi les outils (driver vs navigator)
 - Outils imposés
     - mob.sh
+- Notre définition de CQRS / séparer read & write?
 
 # Objectif du doc
 
@@ -47,7 +48,13 @@
 
 # Battle
 
+## 1
 - Archi hexagonale, ce doit être un non événement d'en mettre une en place
+
+Doit-on se forcer à mettre une archi hexa?
+Avantages : facilite l'évolution
+Inconvénients : peut rajouter une couche (pas un soucis pour Jonathan et Dimitri)
+A mettre ailleurs? -> Pas d'use case si c'est que du passe-plat ?
 
 ## Les tests doivent être rapides
 
@@ -59,11 +66,20 @@ Dépend de [inbox: On entend quoi par test "rapide"]
 
 # En cours de test
 
+## Le terme use case est viable dans la lecture et l'écriture
+
+Accéder à mon panier et ajouter des articles à mon panier sont deux cas d'utilisation de l'application. Nous choisissons donc d'utiliser le terme "use case" pour ces deux opérations
+
 ## Utiliser Git Gamble
 
 Dimitri et Jonathan vont l'essayer
 
 # Validées
+
+## Séparer le monde de la lecture de celui de l'écriture
+
+Nous avons choisi de séparer les use cases de lecture de ceux d'écriture. Cette séparation est a minima effective dans la couche hexagonal et les secondary adapters.
+Nous nous laissons libre choix de définir si les primary adapters sont concernés ou non. "It depends" 🤷‍♂️
 
 ## Notre définition de test doubles
 
