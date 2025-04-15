@@ -33,8 +33,10 @@
     - Un référentiel de pratiques générale (puis par langage / stack ?)
         - Avantage : on peut filer ce référentiel aux clients. Ca montre qu'on ne fait pas les choses au hasard et leur permet de reprendre avec le contexte du pourquoi telle ou telle pratique
     - On peut / on doit / on ne doit pas
+    - Voir via git blame le mob complet qui a participé à la modification (Jonathan)
 - Management
     - Demander en permanence où en sont les membres vis-à-vis du collectif
+
 - Collaboration
     - Qui choisi les outils (driver vs navigator)
 - Outils imposés
