@@ -11,11 +11,9 @@
     - Préciser comment un stub parametré s'utiliser (feed vs constructor vs etc.)
 - Conventions
     - Nommage
-        - Test double
 - Architecture
     - Définir un ensemble d'architectures permettant de répondre avec un minimum de code au besoin
     - Quels raccourcis se permet-on sur une archi ?
-    - Archi hexagonale, ce doit être un non événement d'en mettre une en place
     - Rendre les morceaux de code modulaires (création de librairie)
 - Outillage
     - Définir, par stack, les outils qu'on préfère utiliser
@@ -43,13 +41,13 @@
 - Outils imposés
     - mob.sh
 
-
-
 # Objectif du doc
 
 [A préciser ...]
 
 # Battle
+
+- Archi hexagonale, ce doit être un non événement d'en mettre une en place
 
 ## Les tests doivent être rapides
 
@@ -66,7 +64,6 @@ Dépend de [inbox: On entend quoi par test "rapide"]
 Dimitri et Jonathan vont l'essayer
 
 # Validées
-
 
 ## Notre définition de test doubles
 
