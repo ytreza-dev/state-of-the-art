@@ -1,12 +1,14 @@
 # A discuter (inbox)
 
 - Tests
+    - Définir notre ubiquitous language sur ce que sont les tests
     - Définir quels niveaux de tests on veut implémenter selon le besoin
         - TU
         - Tests d'intégration
         - Tests E2E
     - Minimiser les tests e2e et les tests d'intégration
     - On entend quoi par test "rapide"
+    - Préciser comment un stub parametré s'utiliser (feed vs constructor vs etc.)
 - Conventions
     - Nommage
         - Test double
@@ -49,24 +51,6 @@
 
 # Battle
 
-## Définir notre ubiquitous language sur ce que sont les tests
-
-**** Reprendre ICI ****
-Dimitri: https://blog.cleancoder.com/uncle-bob/2014/05/14/TheLittleMocker.html.
-
-Dummy: Une valeur par défaut retourné non paramétrable OU throw error -> on sait qu'il ne sera pas appelé ou que son appel n'impactera rien
-Stub:
-    - Parametré:
-    - Non parametré:
-        Une valeur par défaut retourné paramétrable par le test
-Spy:
-    Expose la liste des méthodes avec leur paramètres appelés. Permet de s'assurer 
-Fake
-
-Mock
-InMemory
-
-
 ## Les tests doivent être rapides
 
 Jonathan: Pour pouvoir les lancer continuellement
@@ -82,6 +66,29 @@ Dépend de [inbox: On entend quoi par test "rapide"]
 Dimitri et Jonathan vont l'essayer
 
 # Validées
+
+
+## Notre définition de test doubles
+
+Quelques liens sur lesquels on s'appuie pour notre interprétation des test doubles :
+- [The Little Mocker](https://blog.cleancoder.com/uncle-bob/2014/05/14/TheLittleMocker.html)
+- [Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
+
+Dummy: Pour compléter la définition d'Oncle Bob sur ce type de test double, nous avons choisi de toujours lever une erreur dans l'implémentation. Ca permet de mettre en évidence les appels non attendus à ce collaborateur et donc qu'on s'est trompé de test double
+
+Stub: Pour compléter la définition d'Oncle Bob sur ce type de test double, nous avons choisi d'ajouter la notion de stub paramétrable. C'est-à-dire que le résultat d'exécution du stub sera parametré par le test
+
+Spy: Pas de changement changement à la définition d'Oncle Bob sur ce type de test double. On n'impose pas de contrainte pour nous permettre de faire évoluer notre interprétation
+
+Mock: On suggère de le remplacer par un simple Spy sur lequel le test viendra faire l'assert. Ca permet au test double de ne pas avoir de connaissance du bon comportement attendu
+
+Fake: Test double qui permet de couvrir un cas métier particulier
+
+InMemory: Adapter viable pour de la production et du testing si on décide de le paramétrer
+
+## Minimiser l'utilisation des librairies de mock
+
+Nous savons faire sans et de manière efficace. Nous préférons éviter l'implicite et créons nos propres test doubles réutilisables.
 
 ## Maintenir ce référentiel en français
 
