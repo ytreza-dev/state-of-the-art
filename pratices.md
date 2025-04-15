@@ -2,10 +2,6 @@
 
 - Tests
     - Définir notre ubiquitous language sur ce que sont les tests (avoir peut-être une section dédiée voire même un fichier à part)
-    - Définir quels niveaux de tests on veut implémenter selon le besoin
-        - TU
-        - Tests d'intégration
-        - Tests E2E
     - Minimiser les tests e2e et les tests d'intégration
     - On entend quoi par test "rapide"
     - Préciser comment un stub parametré s'utiliser (feed vs constructor vs etc.)
@@ -29,6 +25,7 @@
     - Des contracts tests
     - Avoir un watch mode par type de test (local vs acceptance)
     - Quand tester quoi
+    - Linter/Prettier 
 
 - A part
     - pour le futur, mettre en place l'event sourcing et devenir expert dessus
@@ -51,6 +48,40 @@
 # Ubiquitous Language
 
 # Battle
+
+
+## Stratégie de test
+
+### Backend
+
+#### Controllers
+ 
+Nous utilisons du contract testing pour nous assurer du bon comportement de nos controllers.
+- Une vraie requête HTTP est réalisée sur un serveur lancé par la suite de test.
+- Dans le monde du write, nous utilisons un Spy de notre use case.
+- Dans le monde du read, nous utilisons un Stub parametré de notre use case. Nous dissocions la valeur retournée attendue de la valeur retournée parametrée dans le Stub. Le changement de l'un n'entraîne pas le changement de l'autre. Cela permet de garantir le contrat même en cas de renommage
+
+#### Hexagon
+
+Nous appliquons la stratégie F.I.R.S.T. (voir chapitre 9 de Clean Code, section "F.I.R.S.T") pour la création de ces tests.
+
+#### Infrastructure
+
+Très peu de test pour conserver une vitesse d'exécution "relativement" correcte.
+Eviter d'avoir des tests qui couvrent de la logique -> ca voudrait dire que la logique aurait sa place dans l'hexagon.
+"Ce sont des tests de communication"
+Nous essayons de respecter F.I.R.S.T.
+
+Infra externe :
+Infra interne : 
+
+**** A compléter la prochaine fois ****
+
+
+### Frontend
+
+
+
 
 ## Les tests doivent être rapides
 
