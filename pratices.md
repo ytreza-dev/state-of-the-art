@@ -26,7 +26,8 @@
     - Avoir un watch mode par type de test (local vs acceptance)
     - Quand tester quoi
     - Linter/Prettier 
-
+- Testing
+    - Utiliser de l'aléatoire pour faire de la triangulation
 - A part
     - pour le futur, mettre en place l'event sourcing et devenir expert dessus
     - déterminer des experts sur chaque pratique
