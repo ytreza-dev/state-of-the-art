@@ -10,7 +10,6 @@
         - Repository / DataSource etc.
 - Architecture
     - Définir un ensemble d'architectures permettant de répondre avec un minimum de code au besoin
-    - Quels raccourcis se permet-on sur une archi ?
     - Rendre les morceaux de code modulaires (création de librairie)
     - Choisir une manière de représenter l'organisation des répertoires (vertical architecture, etc...)
 - Outillage
@@ -19,7 +18,6 @@
     - De l'injection de dépendances
 - Méthodologie
     - TDD
-    - Déploiement continu (envisager de déployer toutes les 30 minutes)
     - Adapter contract testing
     - Avoir le moins de logique possible dans les composants
     - Des contracts tests
@@ -39,16 +37,26 @@
     - Voir via git blame le mob complet qui a participé à la modification (Jonathan)
 - Management
     - Demander en permanence où en sont les membres vis-à-vis du collectif
-
+  
 - Collaboration
     - Qui choisi les outils (driver vs navigator)
 - Outils imposés
     - mob.sh
-- Notre définition de CQRS / séparer read & write?
 
 
+- Parler du mob programming (Dimitri trop rapide)
+- Méthodologie : Déploiement continu (envisager de déployer toutes les 30 minutes)
+- Définir nos différentes boucles de feedback
+- UL : Principe / Guide line (c'est souple)
+- UL : Règle / loi (c'est dur)
+- principes d'holacratie dans la rédaction des practices
+- lorsqu'on parle et que quelqu'un doit partir, comment le dire ? 
 
+- Lorsqu'on fait un choix différent de l'actuel état de l'art : 
+  - dans quelle mesure réapplique-t-on ce nouveau choix sur le code existant ?
+  - quel process met-on en œuvre pour l'intégrer dans l'état de l'art ?
 
+- Architecture - Quels raccourcis se permet-on sur une archi ? (définir un raccourci)
 
 # Objectif du doc
 
@@ -62,8 +70,23 @@ SUT : System Under Test : Dans une suite de test, représente la partie du code 
 
 # Battle
 
+- les différentes couches du front
+
+JL : 
+- couche infrastructure (secondary)
+- couche applicative (hexagon) (données, et les comportements liés à l'application) (facile à tester unitairement) gestion de la route ici
+- couche description de l'ui (lecture des données)
+- couche de présentation (primary) (react  / tsx, html, css) : dedans très peu de logique, pour une entrée on doit avoir une sortie, on peut appeler les uses cases dedans (tester via cypress ou testing library)  
+
+Fred : 
+injection de dépendance indépendante du framework
+tout ne doit pas être dans redux
+En raccord avec JL, sauf pour les routes qui devraient être dans la couche présentation
 
 
+couche applicative 
+couche redux
+couche présentation
 
 
 
@@ -146,4 +169,16 @@ Nous essayons de respecter F.I.R.S.T.
 
 Infra externe : test que l'on ne maîtrise pas (ils peuvent être flacky)
 Infra interne : test que l'on maîtrise (ils faut veiller à ce qu'ils ne soient pas flacky)
+
+## Time boxing
+Gérer un time boxing en fonction du mob et du changement de rôle  
+On se demande à ce moment si on avance dans la bonne direction ou non
+Mini-retro du rôle d'avant
+On compte sur un membre en dehors de la discussion pour proposer d'arrêter : 
+
+lorsqu'on n'avance pas, outils à disposition :
+  - brain dump quelque part (à définir)
+  - le dernier motiste ? On désigne celui qui a le dernier mot mais c'est l'équipe qui a la responsabilité
+  - fixer une plus petite hypothèse, pour la valider plus simplement
+  - autres outils à définir
 

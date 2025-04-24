@@ -1,6 +1,6 @@
 # Ubiquitous language
 
-## Test doubles
+## Test double
 
 Quelques liens sur lesquels on s'appuie pour notre interprétation des test doubles :
 - [The Little Mocker](https://blog.cleancoder.com/uncle-bob/2014/05/14/TheLittleMocker.html)
