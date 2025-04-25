@@ -1,3 +1,7 @@
+# Nouvel inbox - à discuter
+
+- Pas de it.only en prod
+
 # A discuter (inbox)
 
 - Tests
