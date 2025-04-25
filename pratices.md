@@ -16,6 +16,9 @@
         - Repository / DataSource etc.
           JL > Je veux ici qu'il n'y ait aucune ambiguité, que l'on ne se pose pas la question. La nature doit être dans le type, pas dans le nom de variable. Avoir une gateway in memory, c'est quelque chose qui me perturbe. Donc, je pense que l'interface ne doit pas savoir que c'est une gateway, l'implémentation, oui.
       
+        - organisation des dossiers :
+          - `image` ou `images` ? 
+
 - Architecture
     - Définir un ensemble d'architectures permettant de répondre avec un minimum de code au besoin
     - Rendre les morceaux de code modulaires (création de librairie)
