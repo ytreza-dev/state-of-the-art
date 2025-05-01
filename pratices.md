@@ -1,6 +1,10 @@
 # Nouvel inbox - à discuter
 
 - Pas de it.only en prod
+  DK > Quand on en vient à jouer avec du only, focus, skip & cie, ça smell grave. Ca veut dire qu'on a un test flaky, trop long ou un découpage des suites de tests beaucoup trop large (genre on veut pas tout lancer car ça prendrait des plombes même si notre test qui nous intéresse est rapide)
+
+- création sut & collab en beforeEach, verify(expected) généralisé. C'est tellement plus simple à la lecture (ça enlève le bruit de comment on assert, comment on appelle notre sut, etc.)
+- mettre les collab.feed dans des méthodes feed -> ca enlève le bruit technique
 
 # A discuter (inbox)
 
