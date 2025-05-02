@@ -1,0 +1,39 @@
+Reprendre les catégories via le git diff
+DK : Remettre ça dans l'état de l'art en async (ce midi genre)
+
+Retourne dans l'inbox
+	Définir notre ubiquitous language sur ce que sont les tests (avoir peut-être une section dédiée voire même un fichier à part)
+
+Ca avance
+    création sut & collab en beforeEach, verify(expected) généralisé. C'est tellement plus simple à la lecture (ça enlève le bruit de comment on assert, comment on appelle notre sut, etc.) --> Dimitri documente
+    mettre les collab.feed dans des méthodes feed -> ca enlève le bruit technique --> Dimitri documente
+
+Ca avance (1 pers)
+	De l'injection de dépendances
+		FJ > j'aime vraiment beaucoup Piqure en front --> Fred tu documentes
+	mob.sh
+		JL > Cela permet de travailler avec n'importe quel IDE, donc oui pour l'imposer si au moins une personne veut l'utiliser (c'est mon cas). Par contre, si je ne suis pas là, je ne veux pas imposer un outil. --> Jonathan tu documentes
+	Lorsqu'on fait un choix différent de l'actuel état de l'art :
+		dans quelle mesure réapplique-t-on ce nouveau choix sur le code existant ?
+		FJ > Je dirais qu'il faudrait prévoir des sessions d'uniformisation lorsque ça arrive pour éviter de livrer du code non uniforme à nos clients et devoir justifier pourquoi 2 choses sont faites différement. --> Fred tu documentes
+
+Ca avance (2 pers)
+	Pas de it.only en prod --> Dimitri documente
+		DK -> Quand on en vient à jouer avec du only, focus, skip & cie, ça smell grave. Ca veut dire qu'on a un test flaky, trop long ou un découpage des suites de tests beaucoup trop large (genre on veut pas tout lancer car ça prendrait des plombes même si notre test qui nous intéresse est rapide)
+		AG -> Ok avec ça
+
+Battle ?
+	hexagone partout (lecture + écriture)
+		AG > ça ne sert à rien de l'avoir partout. Typiquement en lecture, je trouve ça totalement inutile ! Il faut rester au plus proche de la DB dans ce cas précis je pense !
+		AT > Ok pour simplifier dans le cadre du read
+		
+		
+	Choisir une manière de représenter l'organisation des répertoires (vertical architecture, etc...)
+		DK > Je serais d'avis de faire au plus simple tant que y'a peu de chose dans le répertoire. Si on juge ensemble que split primary/hexagon/secondary est pertinent, on le fait. Pareil pour port/use cases/domain model --> Fred tu documentes
+		FJ > En phase d'avoir quelque chose qu'on retrouve partout
+
+
+Proposition: On ne met pas à jour tout de suite l'état de l'art. Chacun met à jour en async.
+	Ca avance (personne): c'est celui qui a écrit la practice qui la documente
+	Ca avance (1 pers): c'est celui qui a écrit la practice qui la documente + celui qui a réagi si différent (sync ou async peu importe)
+	
