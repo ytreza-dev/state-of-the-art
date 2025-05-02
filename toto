@@ -8,6 +8,13 @@ Ca avance
     création sut & collab en beforeEach, verify(expected) généralisé. C'est tellement plus simple à la lecture (ça enlève le bruit de comment on assert, comment on appelle notre sut, etc.) --> Dimitri documente
     mettre les collab.feed dans des méthodes feed -> ca enlève le bruit technique --> Dimitri documente
 
+    - Adapter contract testing --> Jonathan documente
+      - JL > Peut-être un peu tôt pour l'équipe, mais chaud pour en discuter
+      - FJ > Il me faut un court de rattrapage sur ce que c'est
+- Comment instancier les sut ? --> Dimitri documente
+      - JL > Pas de stratégie à proposer
+      - DK > Hexagon : new, Intégration : récupérer via la DI
+    Joanthan : documenter le contract testing sur un composant front
 Ca avance (1 pers)
 	De l'injection de dépendances
 		FJ > j'aime vraiment beaucoup Piqure en front --> Fred tu documentes

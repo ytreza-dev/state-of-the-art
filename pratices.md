@@ -37,9 +37,7 @@
       - JL > Je pense qu'on peut encore mieux pratiquer le TDD, mais pas de recommandation particulière pour le moment.
       - AG > c'est outil il faut svoir l'utiliser MAIS surtout savoir quand ne pas l'utiliser. J'entends par là que lorsque son utilisation me demande de repasser 12 fois sur le même fichier alors que je savais à l'avance comment j'allais faire l'implémentation, alors ça ne sert à rien. On pourrait débattre sur comment on sait qu'on va faire la même chose. Souvent on a une idée ou des prérequis de ce qu'on veut mettre en place, le TDD n'apporte rien là! Autre chose, il a une ENORME plus-value sur des algorithmes, quasiment aucune sur comment afficher un composant front.
       - FJ > En phase, mais j'pense pas qu'il y ait d'action spécifique à mettre en place, l'entrainement et l'expérience feront leur office.
-    - Adapter contract testing
-      - JL > Peut-être un peu tôt pour l'équipe, mais chaud pour en discuter
-      - FJ > Il me faut un court de rattrapage sur ce que c'est
+
     - Avoir le moins de logique possible dans les composants
       - JL > Tester un composant me parait compliqué et lent. Sauf si on change cela, je veux éviter de tester un composant pour des choses qui ne sont pas liées au framework front
       - AG > si c'est en mode front, aucun interet. Nos composent doivent être humble et afficher ce qui leur est retourné. Pour ce qui de la logique, tout ne doit pas être abstrait !
@@ -48,9 +46,6 @@
       - JL > J'ai l'impression qu'on applique déjà ça
       - DK > Contract tests côté server c'est de la frappe. Peut-être qu'on pourrait préparer/partager un snippet de structure pour ne changer que l'URL, les dependencies et l'assert
       - FJ > Il me faut un court de rattrapage sur ce que c'est
-    - Quand tester quoi
-      - JL > Je ne comprend pas ce point
-      - FJ > Je pense que ça rejoint le sujet de "qu'est ce qu'on veut tester avec des tests E2E
     - Linter/Prettier 
       - JL > OK pour en avoir, mais je ne veux pas que cela ait un impact sur mon flow de développement. Je ne veux pas devoir me réaligner chaque fois que je sauvegarde un fichier. J'aimerai qu'on les décale au moment du commit, voire du push
       - DK > Avoir du rouge pendant que je dév est une charge cognitive dont je me passerai bien (sauf erreur de compilation OFC). Je suis plutôt contre en l'état
@@ -61,12 +56,10 @@
       - JL > Totalement en phase. Voir pour l'utilisation de librairie type faker ou le truc qu'on utilisait @Dimitri 
       - DK > J'ai rien trouvé en TS malheureusement mais y'a moyen de faire des méthode aTruc() qui font du random sur chaque prop. Je suis pour pousser cette pratique tellement ça simplifie la lecture (en plus de la triangulation)
       - AG > J'aime bien l'idée. Est-ce qu'il faut le faire pour chaque "variable" je ne sais pas. Mais si je l'avais je ne serais pas contre.
-    - Comment instancier les sut ?
-      - JL > Pas de stratégie à proposer
-      - DK > Hexagon : new, Intégration : récupérer via la DI
     - Stratégie de test - Frontend
       - FJ > Je pense qu'il faut limiter les E2E, faire du TDD pour faire émerger les page object / view model
       - AG > composant front NON, logique métier OUI, adapter OUI
+      - JL > composant front OUI via contract testing, logique métier OUI, adapter OUI
 - A part
     - pour le futur, mettre en place l'event sourcing et devenir expert dessus
       - JL > J'aimerai que ce soit un critère différenciant pour nous et il y a des patterns intéresasnts. Mais c'est peut-être un peu tôt pour l'équipe.
@@ -80,8 +73,8 @@
     - Un référentiel de pratiques générale (puis par langage / stack ?)
         - Avantage : on peut filer ce référentiel aux clients. Ca montre qu'on ne fait pas les choses au hasard et leur permet de reprendre avec le contexte du pourquoi telle ou telle pratique
           - JL > Pourquoi pas, mais c'est beaucoup de travail.
-        - DK > Générale comme celle-ci pour le moment
-        - AG > en interne oui, pour le client non.
+          - DK > Générale comme celle-ci pour le moment
+          - AG > en interne oui, pour le client non.
     - On peut / on doit / on ne doit pas
 	    - UL : Principe / Guide line (c'est souple)
 	    - UL : Règle / loi (c'est dur)
@@ -107,8 +100,6 @@
   - DK > L'outil mob.sh rend la création de branche facile donc n'aide pas forcément à faire du CD. Je suis pour se fixer un objectif de déploiement régulièrement. Ca permet de se focus sur quelque chose qui a de l'impact dans l'idée
   - AG > dans l'idée c'est bien d'essayer de tendre vers ça je pense. L'idée pour moi dérrière est de ce rappelr que ce qui compte c'est la valeur qu'on appporte au client et de pouvoir régulièrement /rapidement lui apporter plus de valeur.
 
-- Définir nos différentes boucles de feedback
-  - JL > Il faudrait les définir dans UL
 - principes d'holacratie dans la rédaction des practices
   - JL > Afin de gagner en efficacité et diminuer les discussions
   - AG > ne maitrisant pas l'holacratie, je dirais non. C'est pas parceque tu es expert dans un domaine, qu'une personne débutante dans ce domaine ne peux pas apporter de super pratique de part son expérience dans le reste.
@@ -118,8 +109,6 @@
     - FJ > On a des canaux textuels pour le dire (et je pense qu'il faudrait le dire quand même plutôt que partir sans rien dire), et on sait que les gens avec qui on bosse en ont qqch à faire de ce qu'on raconte, donc que le départ n'est pas malveillant
 
 - Lorsqu'on fait un choix différent de l'actuel état de l'art :
-    - dans quelle mesure réapplique-t-on ce nouveau choix sur le code existant ?
-      - FJ > Je dirais qu'il faudrait prévoir des sessions d'uniformisation lorsque ça arrive pour éviter de livrer du code non uniforme à nos clients et devoir justifier pourquoi 2 choses sont faites différement.
     - quel process met-on en œuvre pour l'intégrer dans l'état de l'art ?
       - JL > Lorsqu'on remet en question l'état de l'art, il faudrait le signaler rapidement.
       - DK > Je suis pour garder l'état de l'art même si y'a challenge en cours. Discuter de manière synchrone mais en dehors du contexte client. Trancher et fix ou non sur ce qui a été fait avant challenge. A nous de voir si on utilise l'inbox pour challenge la pratique ou si on juge plus pertinent d'en discuter genre en fin de journée et d'amend la practice dans la foulée si on est au moins quelques uns
