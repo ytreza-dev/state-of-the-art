@@ -19,8 +19,7 @@ Ca avance (1 pers)
 	mob.sh
 		JL > Cela permet de travailler avec n'importe quel IDE, donc oui pour l'imposer si au moins une personne veut l'utiliser (c'est mon cas). Par contre, si je ne suis pas là, je ne veux pas imposer un outil. --> Jonathan tu documentes
 	Lorsqu'on fait un choix différent de l'actuel état de l'art :
-		dans quelle mesure réapplique-t-on ce nouveau choix sur le code existant ?
-		FJ > Je dirais qu'il faudrait prévoir des sessions d'uniformisation lorsque ça arrive pour éviter de livrer du code non uniforme à nos clients et devoir justifier pourquoi 2 choses sont faites différement. --> Fred tu documentes
+
 
 Ca avance (2 pers)
 	Pas de it.only en prod --> Dimitri documente
