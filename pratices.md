@@ -40,7 +40,7 @@
           réutilisabilité, diminuer la charge cognitive, améliorer la rapidité des tests, améliorer le design du code et l'organisation des répertoires.
         - DK > Trop vaste / générique. Si on parle juste de création de lib, je le suis plus souvent moteur pour ce qui a attrait au test tooling
         - AG > ça dépent du context. On ne doit pas créer une lib pour le plaisir alors que j'ai besoin de faire 2 GET sur un adapteur.ça devient de l'overengeniering!
-- Méthodologie
+- Méthodologie 
     - TDD
         - JL > Je pense qu'on peut encore mieux pratiquer le TDD, mais pas de recommandation particulière pour le moment.
         - AG > c'est outil il faut svoir l'utiliser MAIS surtout savoir quand ne pas l'utiliser. J'entends par là que lorsque son utilisation me demande de repasser 12 fois sur le
@@ -226,6 +226,15 @@ Le français étant notre langue maternelle, lire et écrire dans cette langue n
 ## On timebox
 
 Nous avons choisi de time-box nos discussions à 10 minutes par pratique. Si besoin de plus de temps, nous pouvons nous caler un point/atelier dédié.
+
+## Évolution de l'état de l'art en cours de projet
+De changements sur l'état de l'art peuvent survenir au cours d'un projet, par exemple, l'établissement d'une convention de nommage.
+Lorsque ceci survient, le code étant un livrable au client, il est important que la base de code soit uniforme et respecte donc un même état de l'art.
+Ainsi, 2 possibilités existent :
+1. Garder l'état de l'art initial. Ce choix est préférable lorsque la base de code est importante et que la plus-value ne serait pas si importante, ou trop coûteuse.
+2. Changer l'état de l'art, et organiser une session d'uniformisation de la base de code. Ce choix peut être plus coûteux, mais reste à envisager pour afficher un bon niveau de qualité de livrable.
+
+Dans les 2 cas, la nouvelle pratique, une fois validée, doit être formalisée et ajoutée dans ce fichier.
 
 ## Outils
 
