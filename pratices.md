@@ -9,7 +9,6 @@
 # A discuter (inbox)
 
 - Tests
-    - Définir notre ubiquitous language sur ce que sont les tests (avoir peut-être une section dédiée voire même un fichier à part)
     - Minimiser les tests e2e et les tests d'intégration
       - JL > Je veux que la suite de test soit rapide à lancer. Si les tests e2e et intégration respecte cette contrainte, il peut y en avoir beaucoup.
       - DK > Pas d'envie de minimiser les tests d'intégration. Quand ce sont des adapters ciblant des collaborateurs qu'on ne maîtrise pas, la logique est distante donc c'est souvent juste le happy path + un cas d'erreur qui est testé. Quand c'est des adapters ciblant des collaborateurs qu'on maîtrise (data source, repository, file storage), je couvre chaque WHERE, ORDER BY, etc. surtout pour les repos (si tu te foires sur ton repo autant dire que toutes tes règles de gestion ne servent à rien car tu pourrais persister le mauvais état -> critique pour moi ce type d'adapter)
@@ -35,23 +34,12 @@
           - DK > Repo c'est un pattern pour save une domain entity. Data source c'est purement de la récupération d'info sans side-effect
           - AG > j'aime bien quand s'est explicite dans le nom de la variable. ça permet de facilement le retrouver avec outils de recherche des IDE.Le mettre dans le noms du ficher et un plus mais pas obligatoire, c'est surtout à but de "trier" et regrouper les instances lorsqu'elles sont dans un même folder
           - FJ > En fait, j'pense que c'est surtout côté Ubiquitous Language qu'il faut qu'on travaille ce sujet.
-      
-        - organisation des dossiers :
-            - `image` ou `images` ?
 
 - Architecture
-    - Définir un ensemble d'architectures permettant de répondre avec un minimum de code au besoin
     - Rendre les morceaux de code modulaires (création de librairie)
       - JL > C'est une pratique que j'essaie de mettre en place. C'est un peu tôt pour l'équipe, mais je considère que cela permet de diminuer le couplage, améliorer la réutilisabilité, diminuer la charge cognitive, améliorer la rapidité des tests, améliorer le design du code et l'organisation des répertoires.
-        - DK > Trop vaste / générique. Si on parle juste de création de lib, je le suis plus souvent moteur pour ce qui a attrait au test tooling
-        - AG > ça dépent du context. On ne doit pas créer une lib pour le plaisir alors que j'ai besoin de faire 2 GET sur un adapteur.ça devient de l'overengeniering!
-    - Choisir une manière de représenter l'organisation des répertoires (vertical architecture, etc...)
-      - DK > Je serais d'avis de faire au plus simple tant que y'a peu de chose dans le répertoire. Si on juge ensemble que split primary/hexagon/secondary est pertinent, on le fait. Pareil pour port/use cases/domain model
-- Outillage
-    - Définir, par stack, les outils qu'on préfère utiliser
-        - ex : Front : Angular, un outil de state, un outil de gestion event driven, un outil d'injection de dépendances
-    - De l'injection de dépendances
-      FJ > j'aime vraiment beaucoup Piqure en front
+      - DK > Trop vaste / générique. Si on parle juste de création de lib, je le suis plus souvent moteur pour ce qui a attrait au test tooling
+      - AG > ça dépent du context. On ne doit pas créer une lib pour le plaisir alors que j'ai besoin de faire 2 GET sur un adapteur.ça devient de l'overengeniering!
 - Méthodologie
     - TDD
       - JL > Je pense qu'on peut encore mieux pratiquer le TDD, mais pas de recommandation particulière pour le moment.
@@ -59,7 +47,7 @@
       - FJ > En phase, mais j'pense pas qu'il y ait d'action spécifique à mettre en place, l'entrainement et l'expérience feront leur office.
     - Adapter contract testing
       - JL > Peut-être un peu tôt pour l'équipe, mais chaud pour en discuter
-      FJ > Il me faut un court de rattrapage sur ce que c'est
+      - FJ > Il me faut un court de rattrapage sur ce que c'est
     - Avoir le moins de logique possible dans les composants
       - JL > Tester un composant me parait compliqué et lent. Sauf si on change cela, je veux éviter de tester un composant pour des choses qui ne sont pas liées au framework front
       - AG > si c'est en mode front, aucun interet. Nos composent doivent être humble et afficher ce qui leur est retourné. Pour ce qui de la logique, tout ne doit pas être abstrait !
@@ -68,8 +56,6 @@
       - JL > J'ai l'impression qu'on applique déjà ça
       - DK > Contract tests côté server c'est de la frappe. Peut-être qu'on pourrait préparer/partager un snippet de structure pour ne changer que l'URL, les dependencies et l'assert
       - FJ > Il me faut un court de rattrapage sur ce que c'est
-    - Avoir un watch mode par type de test (local vs acceptance)
-      - JL > C'est une pratique du driver. De mon point de vue, la watcher n'est pas assez rapide. Mais je ne veux pas interdire l'utilisation
     - Quand tester quoi
       - JL > Je ne comprend pas ce point
       - FJ > Je pense que ça rejoint le sujet de "qu'est ce qu'on veut tester avec des tests E2E
@@ -105,41 +91,33 @@
         - DK > Générale comme celle-ci pour le moment
         - AG > en interne oui, pour le client non.
     - On peut / on doit / on ne doit pas
-      -JL > Oui, il est important de déterminer dans les pratiques si c'est une règle ou un principe.- DK > Plutôt en faveur d'un "on devrait" / "on ne devrait pas". Y'a pas de blame si on n'utilise pas une pratique qu'on aurait pû. Inversement si on utilise une qu'on ne devrait pas. Souvent c'est par oubli des practices ou cas particulier qui fait que c'est pas applicable. On en discute quelques minutes et on prend une action (suivre ou non la practice)
-        - AG > certain cas son à "forcer" je dirais. (ex: bien nommer, faciliter la lecture etc...) La majorité devrait être des conseils d'utilisation
-    - Voir via git blame le mob complet qui a participé à la modification (Jonathan)
-      - JL > Je pense qu'on peut oublier pour le moment.
-- Management
-    - Demander en permanence où en sont les membres vis-à-vis du collectif
-      -JL > Faire du ménage récurrent, mais est-ce que ça a sa place ici ? même si c'est moi qui l'ai proposé :p
+      - JL > Oui, il est important de déterminer dans les pratiques si c'est une règle ou un principe.
+      - DK > Plutôt en faveur d'un "on devrait" / "on ne devrait pas". Y'a pas de blame si on n'utilise pas une pratique qu'on aurait pû. Inversement si on utilise une qu'on ne devrait pas. Souvent c'est par oubli des practices ou cas particulier qui fait que c'est pas applicable. On en discute quelques minutes et on prend une action (suivre ou non la practice)
+      - AG > certain cas son à "forcer" je dirais. (ex: bien nommer, faciliter la lecture etc...) La majorité devrait être des conseils d'utilisation
+
 
 
 - Collaboration
     - Qui choisi les outils (driver vs navigator)
       - JL > Tout dépend des outils, mais dans l'ensemble, je pense que c'est le driver.
       - DK > Driver. Me demandez pas le watch mode, je souhaite expliciter mes actions.
-      - AG > je ne maitrise pas bien ses roles donc difficile de choisir. Par contre je ne supporte pas "être pris pour un enfant". ex: clique ici, d'abord fait ce select, puis tel raccourci clavier, etc 
-- Outils imposés
-    - mob.sh
-      - JL > Cela permet de travailler avec n'importe quel IDE, donc oui pour l'imposer si au moins une personne veut l'utiliser (c'est mon cas). Par contre, si je ne suis pas là, je ne veux pas imposer un outil.
+      - AG > je ne maitrise pas bien ses roles donc difficile de choisir. Par contre je ne supporte pas "être pris pour un enfant". ex: clique ici, d'abord fait ce select, puis tel raccourci clavier, etc.
 
 - Parler du mob programming (Dimitri trop rapide)
   - JL > C'est un exemple, désolé de te pointer du doigt Dimitri. Est-ce qu'on pourrait avoir une safe zone pour se faire des feedbacks ? C'est assez risqué, mais de mon côté, je me sentirais rassuré. J'ai tellement peur de saouler les gens que j'ai besoin de savoir si c'est le cas ou non afin d'adapter mon comportement.
-    - DK > Oui il faut
-    - AG > ça dépend ce qu'on entends par parler du mob. Si c'est dans le but de prospecter, l'expérience à montré que ça avait plus de tord que de bien. Si c'est globalement faire connaitre cette pratique oui je n'ai pas de soucie avec ça. Pour répondre à JL, il faut pouvoir se donner du feedback c'est hyper important je trouve.
+  - DK > Oui il faut
+  - AG > ça dépend ce qu'on entends par parler du mob. Si c'est dans le but de prospecter, l'expérience à montré que ça avait plus de tord que de bien. Si c'est globalement faire connaitre cette pratique oui je n'ai pas de soucie avec ça. Pour répondre à JL, il faut pouvoir se donner du feedback c'est hyper important je trouve.
 
 - Méthodologie : Déploiement continu (envisager de déployer toutes les 30 minutes)
   - JL > J'aimerai qu'on ait un principe de déployer toutes les x minutes. Je ne veux surtout pas que ce soit une règle.
-    - DK > L'outil mob.sh rend la création de branche facile donc n'aide pas forcément à faire du CD. Je suis pour se fixer un objectif de déploiement régulièrement. Ca permet de se focus sur quelque chose qui a de l'impact dans l'idée
-    - AG > dans l'idée c'est bien d'essayer de tendre vers ça je pense. L'idée pour moi dérrière est de ce rappelr que ce qui compte c'est la valeur qu'on appporte au client et de pouvoir régulièrement /rapidement lui apporter plus de valeur.
+  - DK > L'outil mob.sh rend la création de branche facile donc n'aide pas forcément à faire du CD. Je suis pour se fixer un objectif de déploiement régulièrement. Ca permet de se focus sur quelque chose qui a de l'impact dans l'idée
+  - AG > dans l'idée c'est bien d'essayer de tendre vers ça je pense. L'idée pour moi dérrière est de ce rappelr que ce qui compte c'est la valeur qu'on appporte au client et de pouvoir régulièrement /rapidement lui apporter plus de valeur.
 
 - Définir nos différentes boucles de feedback
   - JL > Il faudrait les définir dans UL
-- UL : Principe / Guide line (c'est souple)
-- UL : Règle / loi (c'est dur)
 - principes d'holacratie dans la rédaction des practices
   - JL > Afin de gagner en efficacité et diminuer les discussions
-    - AG > ne maitrisant pas l'holacratie, je dirais non. C'est pas parceque tu es expert dans un domaine, qu'une personne débutante dans ce domaine ne peux pas apporter de super pratique de part son expérience dans le reste.
+  - AG > ne maitrisant pas l'holacratie, je dirais non. C'est pas parceque tu es expert dans un domaine, qu'une personne débutante dans ce domaine ne peux pas apporter de super pratique de part son expérience dans le reste.
 - lorsqu'on parle et que quelqu'un doit partir, comment le dire ?
     - JL > Je n'aime pas partir du mob comme un voleur, mais je n'aime pas non plus couper le flow. Je ne sais pas comment faire.
     - AG > vraiment pas simple ce cas là. Et il y a le même lorsqu'on arrive. Ce que j'applique : si discussion en cours, je ne dis rien lorsque j'arrive et je mets un message écris lorsque je pars. Si pas de discussion en cours, je parle.
@@ -147,19 +125,17 @@
 
 - Lorsqu'on fait un choix différent de l'actuel état de l'art :
     - dans quelle mesure réapplique-t-on ce nouveau choix sur le code existant ?
-      FJ > Je dirais qu'il faudrait prévoir des sessions d'uniformisation lorsque ça arrive pour éviter de livrer du code non uniforme à nos clients et devoir justifier pourquoi 2 choses sont faites différement.
+      - FJ > Je dirais qu'il faudrait prévoir des sessions d'uniformisation lorsque ça arrive pour éviter de livrer du code non uniforme à nos clients et devoir justifier pourquoi 2 choses sont faites différement.
     - quel process met-on en œuvre pour l'intégrer dans l'état de l'art ?
       - JL > Lorsqu'on remet en question l'état de l'art, il faudrait le signaler rapidement.
-    - DK > Je suis pour garder l'état de l'art même si y'a challenge en cours. Discuter de manière synchrone mais en dehors du contexte client. Trancher et fix ou non sur ce qui a été fait avant challenge. A nous de voir si on utilise l'inbox pour challenge la pratique ou si on juge plus pertinent d'en discuter genre en fin de journée et d'amend la practice dans la foulée si on est au moins quelques uns
-    - AG > je suis mitigé.
+      - DK > Je suis pour garder l'état de l'art même si y'a challenge en cours. Discuter de manière synchrone mais en dehors du contexte client. Trancher et fix ou non sur ce qui a été fait avant challenge. A nous de voir si on utilise l'inbox pour challenge la pratique ou si on juge plus pertinent d'en discuter genre en fin de journée et d'amend la practice dans la foulée si on est au moins quelques uns
+      - AG > je suis mitigé.
 
 - Architecture - Quels raccourcis se permet-on sur une archi ? (définir un raccourci)
     - JL > Je laisse ce raccourci à la responsabilité du mob. 
     - AG > l'idée ici est d'en avoir conscience et de le tracer pour que le groupe s'en souvienne.
     - FJ > Je dirais que je prends les raccourcis qui évitent les passe-plat (ex: Un primary peut appeler directement un secondary s'il n'y a aucun traitement fait sur la donnée)
 
-- hexagone partout (lecture + écriture)
-    - AG > ça ne sert à rien de l'avoir partout. Typiquement en lecture, je trouve ça totalement inutile ! Il faut rester au plus proche de la DB dans ce cas précis je pense !
 # Objectif du doc
 
 [A préciser ...]
