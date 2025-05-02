@@ -32,11 +32,6 @@ Battle ?
 		AT > Ok pour simplifier dans le cadre du read
 
 
-	Choisir une manière de représenter l'organisation des répertoires (vertical architecture, etc...)
-		DK > Je serais d'avis de faire au plus simple tant que y'a peu de chose dans le répertoire. Si on juge ensemble que split primary/hexagon/secondary est pertinent, on le fait. Pareil pour port/use cases/domain model --> Fred tu documentes
-		FJ > En phase d'avoir quelque chose qu'on retrouve partout
-
-
 Proposition: On ne met pas à jour tout de suite l'état de l'art. Chacun met à jour en async.
 	Ca avance (personne): c'est celui qui a écrit la practice qui la documente
 	Ca avance (1 pers): c'est celui qui a écrit la practice qui la documente + celui qui a réagi si différent (sync ou async peu importe)

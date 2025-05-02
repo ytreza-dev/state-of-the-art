@@ -236,6 +236,17 @@ Ainsi, 2 possibilités existent :
 
 Dans les 2 cas, la nouvelle pratique, une fois validée, doit être formalisée et ajoutée dans ce fichier.
 
+## Organisation des dossiers et fichiers d'un projet
+Afin de faciliter la prise en main d'un projet par un membre du collectif, nous uniformisons l'organisation des dossiers et fichiers.
+Ainsi, tant que le projet reste petit, la structure doit rester aussi flat que possible.
+Lorsque le projet grossit, on réorganise pour éviter la charge cognitive de recherche dans un répertoire.
+
+On part sur une base de 7 fichiers ou répertoires dans un répertoire implique la création d'un nouveau niveau.
+Le premier niveau d'une structure contiendra les répertoires suivants : 
+1-primaries
+2-domain
+3-secondaries
+
 ## Outils
 
 ### Frontend
